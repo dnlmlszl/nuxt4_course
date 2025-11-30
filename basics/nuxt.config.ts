@@ -12,4 +12,16 @@ export default defineNuxtConfig({
       path: '@/otherComponents', // Vue scans otherComponents as well when rendering layouts and looking for components
     },
   ],
+  // CSS or bootstrap
+  app: {
+    head: {
+      link: [
+        {
+          rel: 'stylesheet',
+          href: 'https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.8/css/bootstrap-grid.min.css',
+        },
+      ],
+    },
+  },
+  css: ['~/assets/css/main.css'],
 });
