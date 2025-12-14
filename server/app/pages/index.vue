@@ -21,17 +21,21 @@
 </template>
 
 <script setup>
+const { error, pending, data } = await useFetch('api/employees');
+
 // $fetch, useFetch, useAsyncFetch
 
 // const data = await $fetch('http://localhost:3004/employees');
 // console.log(data);
 
-// const { error, pending, data } = await useFetch(
-//   'http://localhost:3004/employees'
-// );
-//console.log(data.value);
+// const { error, pending, data } = await useAsyncData('someData', () => {
+//   return $fetch('http://localhost:3004/employees');
+// });
 
-const { error, pending, data } = await useAsyncData('someData', () => {
-  return $fetch('http://localhost:3004/employees');
-});
+// const { data: getEmployee } = await useFetch('/api/employees');
+// const { data: postEmployee } = await useFetch('/api/employees', {
+//   method: 'post',
+//   body: { test: 'test' },
+// });
+// console.log(postEmployee.value);
 </script>
