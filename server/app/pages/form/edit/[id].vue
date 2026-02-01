@@ -44,6 +44,7 @@ import { useFetch } from 'nuxt/app';
 import { watchEffect } from 'vue';
 import { ref } from 'vue';
 const route = useRoute();
+const router = useRouter();
 
 const formData = ref({
   fullname: '',
@@ -68,10 +69,12 @@ watchEffect(() => {
 
 async function submitForm() {
   try {
-    const request = await $fetch('/api/employees', {
-      method: 'post',
+    const request = await $fetch(`/api/employees/byid?id=${route.params.id}`, {
+      method: 'PATCH',
       body: formData.value,
     });
+    alert('Employee updated successfully!');
+    router.push('/');
   } catch (error) {
     console.log(error);
   }

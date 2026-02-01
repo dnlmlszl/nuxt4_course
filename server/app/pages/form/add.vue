@@ -37,6 +37,7 @@
 
 <script setup>
 import { ref } from 'vue';
+const router = useRouter();
 
 const formData = ref({
   fullname: '',
@@ -50,6 +51,7 @@ async function submitForm() {
       method: 'post',
       body: formData.value,
     });
+    router.push('/');
   } catch (error) {
     console.log(error);
   }
