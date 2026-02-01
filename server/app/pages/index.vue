@@ -21,7 +21,11 @@
 </template>
 
 <script setup>
-const { error, pending, data } = await useFetch('api/employees');
+const { error, pending, data } = await useFetch('/api/employees');
+
+// const hello = await $fetch('/hello');
+
+// console.log(hello);
 
 // $fetch, useFetch, useAsyncFetch
 

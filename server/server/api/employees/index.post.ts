@@ -1,7 +1,28 @@
-export default defineEventHandler((event) => {
-  console.log(event);
+export default defineEventHandler(async (event) => {
+  try {
+    const body = await readBody(event);
 
-  return {
-    hello: 'POST Test',
-  };
+    if (body.fullname.length <= 3) {
+      throw createError({
+        statusCode: 404,
+        statusMessage: 'Name is too short',
+      });
+    }
+
+    const data = await $fetch('http://localhost:3004/employees', {
+      method: 'POST',
+      body,
+    });
+
+    return data;
+  } catch (error: unknown) {
+    if (error instanceof Error) {
+      throw createError(error);
+    }
+
+    throw createError({
+      statusCode: 500,
+      statusMessage: 'An unknown error occurred',
+    });
+  }
 });
