@@ -17,6 +17,12 @@
         >
           Add employee
         </NuxtLink>
+        <NuxtLink
+          class="me-3 py-2 text-dark text-decoration-none"
+          to="/about_us"
+        >
+          About us
+        </NuxtLink>
       </nav>
     </header>
     <div>

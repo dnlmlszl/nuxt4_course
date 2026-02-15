@@ -11,7 +11,10 @@
           </h3>
           <p class="card-text">{{ employee.position }}</p>
           <p class="card-text">{{ employee.age }}</p>
-          <nuxtLink :to="`/employees/${employee.id}`" class="btn btn-primary"
+          <nuxtLink
+            :to="`/employees/${employee.id}`"
+            class="btn btn-primary"
+            prefetch-on="interaction"
             >Details</nuxtLink
           >
         </div>
@@ -21,6 +24,9 @@
 </template>
 
 <script setup>
+defineRouteRules({
+  prerender: true,
+});
 const { error, pending, data } = await useFetch('/api/employees');
 
 // const hello = await $fetch('/hello');

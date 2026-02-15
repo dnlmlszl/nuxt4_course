@@ -11,6 +11,8 @@
     "jserv": "json-server --watch db.json --port 3004"
   },
   "dependencies": {
+    "@nuxt/image": "2.0.0",
+    "@nuxtjs/sitemap": "7.6.0",
     "bootstrap": "^5.3.8",
     "json-server": "0.17.4",
     "nuxt": "^4.2.1",
